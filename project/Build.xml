@@ -4,18 +4,22 @@
 
     <files id="haxe">
         <compilerflag value="-I${haxelib:raylib-hx}/project/lib/raylib/src" />
+        <compilerflag value="-I${haxelib:raylib-hx}/project/lib/raygui/src" />
         <compilerflag value="-I${haxelib:raylib-hx}/project/include" />
 
         <include name="${haxelib:raylib-hx}/project/lib/raylib-defines.xml" />
+        <include name="${haxelib:raylib-hx}/project/lib/raygui-defines.xml" />
 
         <file name="${haxelib:raylib-hx}/project/src/android_main.c" if="android" />
     </files>
 
     <files id="__main__">
         <compilerflag value="-I${haxelib:raylib-hx}/project/lib/raylib/src" />
+        <compilerflag value="-I${haxelib:raylib-hx}/project/lib/raygui/src" />
         <compilerflag value="-I${haxelib:raylib-hx}/project/include" />
 
         <include name="${haxelib:raylib-hx}/project/lib/raylib-defines.xml" />
+        <include name="${haxelib:raylib-hx}/project/lib/raygui-defines.xml" />
     </files>
 
     <files id="raylib" dir="${haxelib:raylib-hx}/project/lib/raylib">
