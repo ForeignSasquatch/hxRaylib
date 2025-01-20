@@ -1,0 +1,4 @@
+-cp ./
+-lib hxp
+-main Runner
+-neko ../run.n

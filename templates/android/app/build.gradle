@@ -1,0 +1,56 @@
+plugins
+{
+	id 'com.android.application' version '::GRADLE_PLUGIN_VERSION::'
+}
+
+repositories
+{
+	google()
+	mavenCentral()
+}
+
+android
+{
+	namespace '::APP_PACKAGE::'
+
+	compileSdkVersion ::APP_COMPILE_SDK_VERSION::
+
+	defaultConfig
+	{
+		applicationId '::APP_PACKAGE::'
+		targetSdkVersion ::APP_TARGET_SDK_VERSION::
+		minSdkVersion ::APP_MIN_SDK_VERSION::
+		versionCode ::APP_VERSION_CODE::
+		versionName '::APP_VERSION_NAME::'
+	}
+
+	buildTypes
+	{
+		debug
+		{
+			debuggable true
+			jniDebuggable true
+		}
+
+		release
+		{
+			minifyEnabled true
+			shrinkResources true
+			debuggable false
+			jniDebuggable false
+			pseudoLocalesEnabled false
+			zipAlignEnabled true
+		}
+	}
+
+	compileOptions
+	{
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+}
+
+tasks.withType(JavaCompile)
+{
+	::if APP_SHOW_DEPRECATION_WARNINGS::options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"::else::options.compilerArgs << "-Xlint:none"::end::
+}
